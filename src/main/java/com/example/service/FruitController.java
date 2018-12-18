@@ -33,7 +33,9 @@ public class FruitController {
     // handle input from the Add Fruit form
     @PostMapping
     public String createFruit(@ModelAttribute Fruit fruit) {
-        fruits.add(fruit);
+        if(fruits.stream().noneMatch(f -> f.getName().equalsIgnoreCase(fruit.getName()))) {
+            fruits.add(fruit);
+        }
         return "redirect:/fruits";
     }
 }

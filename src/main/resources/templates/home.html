@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-6">
             <h3>Add a Fruit</h3>
-            <!-- TODO: View Update -->
+            <p>(Duplicates will be ignored)</p>
             <form th:action="@{/fruits}" th:object="${fruitForm}" method="post">
                 <div class="row">
                     <div class="col-6"><input id="fruitInput" type="text" placeholder="Name" th:field="*{name}" size="60"/></div>
