@@ -6,6 +6,8 @@ package com.example.service;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -28,5 +30,10 @@ public class FruitController {
         return "home";
     }
 
-    // TODO POST mapping here
+    // handle input from the Add Fruit form
+    @PostMapping
+    public String createFruit(@ModelAttribute Fruit fruit) {
+        fruits.add(fruit);
+        return "redirect:/fruits";
+    }
 }
